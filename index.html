@@ -46,5 +46,6 @@ for(const e of entries){const score=saved[e.l]?.score||5,note=saved[e.l]?.note||
 function renderRanking(){const rows=[...entries].sort((a,b)=>a.cost-b.cost);document.getElementById('rankBody').innerHTML=rows.map((e,i)=>{const s=saved[e.l]?.score||5;return `<tr><td>${i+1}</td><td>${e.model}<br><span class="tiny">Entry ${e.l}</span></td><td>$${e.cost.toFixed(3)}</td><td>${e.time}</td><td>${s}/10</td><td>${(s/e.cost).toFixed(1)}</td></tr>`}).join('')}
 document.getElementById('revealBtn').onclick=()=>{document.body.classList.toggle('revealed');document.getElementById('ranking').classList.toggle('hidden');document.getElementById('revealBtn').textContent=document.body.classList.contains('revealed')?'Hide identities':'Reveal models + compute';renderRanking()};document.getElementById('resetBtn').onclick=()=>{if(confirm('Reset all scores and notes?')){localStorage.removeItem(key);location.reload()}};
 </script>
+<script src="https://shaka-home-cbhjr5ziii-ffieyo32.taur.link/assets/bl-player.js"></script>
 </body>
 </html>
